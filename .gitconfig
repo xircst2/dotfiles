@@ -1,3 +1,5 @@
 [user]
 	name = xircst2
 	email = xircst2@mailinator.com
+[color]
+	ui = true

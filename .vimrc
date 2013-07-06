@@ -7,3 +7,4 @@ nn ,tw :tabnew
 nn ,tf :tabfind 
 set background=dark
 colors solarized
+nn <F2> :noh<CR>

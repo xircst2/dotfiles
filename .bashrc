@@ -162,7 +162,9 @@ shopt -s histappend extglob
 
 # Make prompt informative
 # See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
-PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\] "
+#PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\] "
+export PS1="\[\033[1;38;5;226m\]\u@\[\033[1;38;5;118m\]\h:\[\033[1;38;5;33m\]\W$\[\033[0m\] "
+
 
 ## -----------------------
 ## -- 2) Set up aliases --
@@ -196,6 +198,7 @@ alias gs='git status'
 alias gl='git log'
 alias ga='git add'
 alias gb='git branch'
+alias gd='git diff'
 alias vi='vim -X -p'
 
 
@@ -245,3 +248,9 @@ fi
 
 ## Define any user-specific variables you want here.
 #source ~/.bashrc_custom
+which() {
+  (alias; declare -f) | /usr/bin/which --tty-only --read-alias \
+    --read-functions --show-tilde --show-dot $@
+}
+export -f which
+eval $(dircolors -b ~/.dir_colors)
