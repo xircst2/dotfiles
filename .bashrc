@@ -197,7 +197,7 @@ alias treeacl='tree -A -C -L 2'
 alias gs='git status'
 alias gl='git log'
 alias ga='git add'
-alias gb='git branch'
+alias gb='git branch -a'
 alias gd='git diff'
 alias vi='vim -X -p'
 
