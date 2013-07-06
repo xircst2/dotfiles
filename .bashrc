@@ -158,11 +158,11 @@ fi
 
 # Append to history
 # See: http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
-shopt -s histappend
+shopt -s histappend extglob
 
 # Make prompt informative
 # See:  http://www.ukuug.org/events/linux2003/papers/bash_tips/
-PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\]"
+PS1="\[\033[0;34m\][\u@\h:\w]$\[\033[0m\] "
 
 ## -----------------------
 ## -- 2) Set up aliases --
@@ -175,9 +175,14 @@ alias cp="cp -i"
 set -o noclobber
 
 # 2.2) Listing, directories, and motion
+alias ls='ls --color=auto'
 alias ll="ls -alrtF --color"
+alias lm='ls -ahl'
 alias la="ls -A"
 alias l="ls -CF"
+alias mkdir='mkdir -p'
+alias grep='grep -Hnr'
+alias diff='diff -u'
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
 alias m='less'
@@ -187,16 +192,31 @@ alias md='mkdir'
 alias cl='clear'
 alias du='du -ch --max-depth=1'
 alias treeacl='tree -A -C -L 2'
+alias gs='git status'
+alias gl='git log'
+alias ga='git add'
+alias gb='git branch'
+alias vi='vim -X -p'
+
 
 # 2.3) Text and editor commands
 alias em='emacs -nw'     # No X11 windows
 alias eqq='emacs -nw -Q' # No config and no X11
-export EDITOR='emacs -nw'
-export VISUAL='emacs -nw' 
+export EDITOR='vim'
+export VISUAL='vim' 
+export LESSHISTFILE='-'
+export LESS_TERMCAP_mb=$'\e[01;31m' # never saw red
+export LESS_TERMCAP_md=$'\e[01;36m' # main caption, cyan
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m' # yello, showing (END) at end of less
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[01;32m' # green, showing some options
+
 
 # 2.4) grep options
 export GREP_OPTIONS='--color=auto'
-export GREP_COLOR='1;31' # green for matches
+export GREP_COLOR='1;36' # green for matches
 
 # 2.5) sort options
 # Ensures cross-platform sorting behavior of GNU sort.
@@ -224,4 +244,4 @@ fi
 ## ------------------------------
 
 ## Define any user-specific variables you want here.
-source ~/.bashrc_custom
+#source ~/.bashrc_custom

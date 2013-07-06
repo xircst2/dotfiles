@@ -1,0 +1,21 @@
+"\eo": "\C-p\C-a\ef "
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+#"\e[C": forward-char
+#"\e[D": backward-char
+#"\e[1~": beginning-of-line
+#"\e[4~": end-of-line            # for END
+#"\e[3~": delete-char            # for DEL
+#"\e[5~": history-search-backward # pageup
+#"\e[6~": history-search-forward # pagedown
+set match-hidden-files on
+set visible-stats on
+set show-all-if-ambiguous on
+"\es": menu-complete
+set convert-meta off
+set output-meta on
+set input-meta on
+set bell-style none
+$if Bash
+  Space: magic-space
+$endif
