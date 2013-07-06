@@ -248,9 +248,4 @@ fi
 
 ## Define any user-specific variables you want here.
 #source ~/.bashrc_custom
-which() {
-  (alias; declare -f) | /usr/bin/which --tty-only --read-alias \
-    --read-functions --show-tilde --show-dot $@
-}
-export -f which
 eval $(dircolors -b ~/.dir_colors)
