@@ -249,3 +249,4 @@ fi
 ## Define any user-specific variables you want here.
 #source ~/.bashrc_custom
 eval $(dircolors -b ~/.dir_colors)
+alias testweb='sudo $(which node) web.js'
